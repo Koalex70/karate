@@ -17,43 +17,53 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex items-center justify-center">
-                    <form wire:submit="save">
+                    <form wire:submit="save" class="w-full">
                         <div class="flex flex-col mb-2">
-                            <label for="name">Введите Имя: </label>
-                            <input type="text" wire:model="form.name"
-                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600">
+                            <label for="name">Имя</label>
+                            <input type="text"
+                                   wire:model="form.name"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите имя">
                         </div>
                         <div class="text-right">
                             @error('form.name') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col mb-2">
-                            <label for="name">Введите фамилию: </label>
-                            <input type="text" wire:model="form.surname"
-                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600">
+                            <label for="name">Фамилия</label>
+                            <input type="text"
+                                   wire:model="form.surname"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите фамилию">
                         </div>
                         <div class="text-right">
                             @error('form.surname') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col mb-2">
-                            <label for="name">Введите отчество: </label>
-                            <input type="text" wire:model="form.patronymic"
-                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600">
+                            <label for="name">Отчество</label>
+                            <input type="text"
+                                   wire:model="form.patronymic"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите отчество">
                         </div>
                         <div class="text-right">
                             @error('form.patronymic') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col mb-2">
-                            <label for="name">Дату рождения: </label>
-                            <input type="date" wire:model="form.date_of_birth"
-                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600">
+                            <label for="name">Дата рождения</label>
+                            <input type="date"
+                                   wire:model="form.date_of_birth"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите дату рождения">
                         </div>
                         <div class="text-right">
                             @error('form.date_of_birth') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col mb-2">
-                            <label for="name">Введите вес: </label>
-                            <input type="text" wire:model="form.weight"
-                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600">
+                            <label for="name">Вес</label>
+                            <input type="text"
+                                   wire:model="form.weight"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите вес">
                         </div>
                         <div class="text-right">
                             @error('form.weight') <span class="text-red-600">{{ $message }}</span> @enderror
@@ -79,7 +89,8 @@
                                     wire:model="form.trainer_id">
                                 <option value="">Выберите Тренера</option>
                                 @foreach(\App\Models\Trainer::all() as $trainer)
-                                    <option value="{{$trainer->id}}">{{$trainer->surname}} {{$trainer->name}} {{$trainer->patronymic}}</option>
+                                    <option
+                                        value="{{$trainer->id}}">{{$trainer->surname}} {{$trainer->name}} {{$trainer->patronymic}}</option>
                                 @endforeach
                             </select>
                         </div>

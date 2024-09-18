@@ -15,13 +15,16 @@
     </div>
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex items-center justify-center">
-                    <form wire:submit="save">
-                        <div>
-                            <label for="name">Введите название: </label>
-                            <input type="text" wire:model="form.name"
-                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600">
+                    <form wire:submit="save" class="w-full">
+                        <div class="flex flex-col mb-2">
+                            <label for="name">Название</label>
+                            <input type="text"
+                                   id="name"
+                                   wire:model="form.name"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите название">
                         </div>
                         <div class="text-right">
                             @error('form.name') <span class="text-red-600">{{ $message }}</span> @enderror
