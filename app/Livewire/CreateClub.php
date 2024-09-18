@@ -18,6 +18,20 @@ class CreateClub extends Component
         return redirect()->to(route('clubs'));
     }
 
+    public function updated($property)
+    {
+        if ($property === 'form.search_federations') {
+            $this->form->updateSearchFederations();
+        }
+    }
+
+    public function setFederation($federationId, $federationName)
+    {
+        $this->form->federation_id = $federationId;
+        $this->form->search_federations = $federationName;
+        $this->form->federations = [];
+    }
+
     public function render()
     {
         return view('livewire.pages.clubs.create-club');
