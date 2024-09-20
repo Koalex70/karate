@@ -19,7 +19,8 @@
                     wire:model.live.debounce.300ms="search"
                     type="text"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 "
-                    placeholder="Search" required="">
+                    placeholder="Search"
+                    required="">
             </div>
         </div>
         <div class="flex space-x-3">
@@ -87,8 +88,8 @@
                                     </div>
                                 </a>
                                 <button
-                                    onclick="confirm('Вы действительно хотите удалить тренера: {{$trainer->surname}} {{$trainer->name}} {{$trainer->patronymic}} ?') || event.stopImmediatePropagation()"
                                     wire:click="delete({{$trainer->id}})"
+                                    wire:confirm="Вы действительно хотите удалить тренера: {{$trainer->surname}} {{$trainer->name}} {{$trainer->patronymic}} ?"
                                     class="px-3 py-1 mb-4 mt-4 bg-red-500 text-white rounded">X
                                 </button>
                             </td>
@@ -111,7 +112,6 @@
                         <option value="10">10</option>
                     </select>
                 </div>
-
             </div>
             {{$trainers->links()}}
         </div>

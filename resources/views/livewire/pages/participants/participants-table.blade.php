@@ -19,12 +19,14 @@
                     wire:model.live.debounce.300ms="search"
                     type="text"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 "
-                    placeholder="Search" required="">
+                    placeholder="Search"
+                    required="">
             </div>
         </div>
         <div class="flex space-x-3">
             <div class="flex space-x-3 items-center">
-                <a href="{{route('participants.create')}}" class="bg-blue-600 rounded p-3 border-gray-300 text-white">
+                <a href="{{route('participants.create')}}"
+                   class="bg-blue-600 rounded p-3 border-gray-300 text-white">
                     Создать
                 </a>
             </div>
@@ -111,8 +113,8 @@
                                     </div>
                                 </a>
                                 <button
-                                    onclick="confirm('Вы действительно хотите удалить участника: {{$participant->surname}} {{$participant->name}} {{$participant->patronymic}} ?') || event.stopImmediatePropagation()"
                                     wire:click="delete({{$participant->id}})"
+                                    wire:confirm="Вы действительно хотите удалить участника: {{$participant->surname}} {{$participant->name}} {{$participant->patronymic}}?"
                                     class="px-3 py-1 mb-4 mt-4 bg-red-500 text-white rounded">X
                                 </button>
                             </td>

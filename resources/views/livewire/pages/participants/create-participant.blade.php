@@ -7,7 +7,8 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex items-center justify-between d p-4">
         <div class="flex space-x-3">
             <div class="flex space-x-3 items-center">
-                <a href="{{route('participants')}}" class="bg-blue-600 rounded p-3 border-gray-300 text-white">
+                <a href="{{route('participants')}}"
+                   class="bg-blue-600 rounded p-3 border-gray-300 text-white">
                     Вернуться назад
                 </a>
             </div>
@@ -112,7 +113,8 @@
                             @error('form.rank_id') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="text-right mt-3">
-                            <button type="submit" class="rounded dark:bg-indigo-600 p-2">Save</button>
+                            <button type="submit"
+                                    class="rounded dark:bg-indigo-600 p-2">Save</button>
                         </div>
                     </form>
                 </div>
