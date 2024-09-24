@@ -16,7 +16,7 @@
     </div>
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex items-center justify-center">
                     <form wire:submit="save" class="w-full">
                         <div class="flex flex-col mb-2">
@@ -47,16 +47,38 @@
                         <div class="text-right">
                             @error('form.patronymic') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
+{{--                        <div class="flex flex-col mb-2">--}}
+{{--                            <label for="club">Клуб</label>--}}
+{{--                            <select name="club" id="club"--}}
+{{--                                    class="border rounded bg-gray-800 text-white focus:border-indigo-600"--}}
+{{--                                    wire:model="form.club_id">--}}
+{{--                                <option value="">Выберите Клуб</option>--}}
+{{--                                @foreach(\App\Models\Club::all() as $club)--}}
+{{--                                    <option value="{{$club->id}}">{{$club->name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
                         <div class="flex flex-col mb-2">
                             <label for="club">Клуб</label>
-                            <select name="club" id="club"
-                                    class="border rounded bg-gray-800 text-white focus:border-indigo-600"
-                                    wire:model="form.club_id">
-                                <option value="">Выберите Клуб</option>
-                                @foreach(\App\Models\Club::all() as $club)
-                                    <option value="{{$club->id}}">{{$club->name}}</option>
-                                @endforeach
-                            </select>
+                            <input type="text"
+                                   wire:model.live="form.search_clubs"
+                                   name="club"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   id="club"
+                                   placeholder="Введите название клуба">
+                            @if($form->clubs)
+                                <div class="relative">
+                                    <div class="absolute z-10 border">
+                                        @foreach($form->clubs as $key => $club)
+                                            <div class="w-full bg-gray-800"
+                                                 wire:key="{{$key}}"
+                                                 wire:click="setClub({{$club->id}}, '{{$club->name}}')">
+                                                {{$club->name}}
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="text-right">
                             @error('form.club_id') <span class="text-red-600">{{ $message }}</span> @enderror

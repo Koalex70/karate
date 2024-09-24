@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\Club;
 use App\Models\Trainer;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -18,12 +19,30 @@ class TrainerForm extends Form
     #[Validate('required')]
     public $club_id = '';
 
+    public $search_clubs = '';
+    public $clubs = [];
+
+    public function  UpdateSeachClubs()
+    {
+        $this->club_id = '';
+
+        if ($this->search_clubs === '') {
+            $this->clubs = [];
+            return;
+        }
+
+        $this->clubs = Club::where('name', 'like', '%' . $this->search_clubs . '%')->limit(10)->get();
+    }
+
     public function setTrainer(Trainer $trainer): void
     {
         $this->trainer = $trainer;
         $this->name = $trainer->name;
         $this->surname = $trainer->surname;
         $this->patronymic = $trainer->patronymic;
+
+        $this->search_clubs = Club::find($trainer->club_id)->name;
+
         $this->club_id = $trainer->club_id;
     }
 
