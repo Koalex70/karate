@@ -95,7 +95,7 @@
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$participant->date_of_birth}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$participant->weight}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-blue-400 hover:text-gray-400">
-                                <a href="{{ route('trainers', ['search' => $participant->trainer->name]) }}">{{$participant->trainer->name}}</a>
+                                <a href="{{ route('trainers', ['search' => $participant->trainer->name]) }}">{{$participant->trainer->surname}} {{$participant->trainer->name}} {{$participant->trainer->patronymic}}</a>
                             </td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$participant->rank->name}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-blue-400 hover:text-gray-400">

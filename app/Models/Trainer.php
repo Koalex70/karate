@@ -20,4 +20,11 @@ class Trainer extends Model
     {
         return $this->belongsTo(Club::class);
     }
+
+    public static function getTrainerFullName($trainerId)
+    {
+        $trainer = Trainer::find($trainerId);
+
+        return $trainer->surname . ' ' . $trainer->name . ' ' . $trainer->patronymic;
+    }
 }

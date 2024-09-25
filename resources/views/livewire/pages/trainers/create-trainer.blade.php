@@ -47,17 +47,6 @@
                         <div class="text-right">
                             @error('form.patronymic') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
-{{--                        <div class="flex flex-col mb-2">--}}
-{{--                            <label for="club">Клуб</label>--}}
-{{--                            <select name="club" id="club"--}}
-{{--                                    class="border rounded bg-gray-800 text-white focus:border-indigo-600"--}}
-{{--                                    wire:model="form.club_id">--}}
-{{--                                <option value="">Выберите Клуб</option>--}}
-{{--                                @foreach(\App\Models\Club::all() as $club)--}}
-{{--                                    <option value="{{$club->id}}">{{$club->name}}</option>--}}
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
                         <div class="flex flex-col mb-2">
                             <label for="club">Клуб</label>
                             <input type="text"
