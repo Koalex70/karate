@@ -58,6 +58,12 @@ new class extends Component
                         {{ __('Participants') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('tournaments')" :active="request()->routeIs('tournaments')" wire:navigate>
+                        {{ __('Tournaments') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

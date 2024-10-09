@@ -1,7 +1,9 @@
 <th scope="col" @if($isSortable ?? true) wire:click="setSortBy('{{ $name }}') @endif">
     <div class="flex justify-center">
         <button class="flex items-center justify-center">
+            <span class="uppercase">
             {{$displayName}}
+            </span>
             @if($isSortable ?? true)
                 @if($sortBy !== $name)
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
