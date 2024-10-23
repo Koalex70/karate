@@ -11,11 +11,9 @@ class CreateTournament extends Component
 
     public function save()
     {
-        $this->form->store();
+        $tournament = $this->form->store();
 
-        dd($this->form);
-
-//        return redirect()->to(route('tournaments'));
+        return redirect()->to(route('tournaments.edit', ['tournament' => $tournament]));
     }
 
     public function render()

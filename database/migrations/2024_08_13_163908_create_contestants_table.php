@@ -16,10 +16,10 @@ return new class extends Migration
             $table->decimal('points', 2, 1);
             $table->boolean('is_winner');
 
-            $table->unsignedBigInteger('match_id');
+            $table->unsignedBigInteger('competition_id');
             $table->unsignedBigInteger('participant_id');
 
-            $table->foreign('match_id')->references('id')->on('matches');
+            $table->foreign('competition_id')->references('id')->on('competitions');
             $table->foreign('participant_id')->references('id')->on('participants');
 
             $table->timestamps();

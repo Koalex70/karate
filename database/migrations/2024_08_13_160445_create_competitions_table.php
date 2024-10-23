@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('matches', function (Blueprint $table) {
+        Schema::create('competitions', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('next_match_id')->nullable();
+            $table->unsignedBigInteger('next_competition_id')->nullable();
             $table->unsignedBigInteger('tournament_id');
-            $table->unsignedBigInteger('match_result_id')->nullable();
+            $table->unsignedBigInteger('competition_result_id')->nullable();
+            $table->unsignedTinyInteger('level');
 
-            $table->foreign('next_match_id')->references('id')->on('matches');
+            $table->foreign('next_competition_id')->references('id')->on('competitions');
             $table->foreign('tournament_id')->references('id')->on('tournaments');
-            $table->foreign('match_result_id')->references('id')->on('match_results');
+            $table->foreign('competition_result_id')->references('id')->on('competition_results');
 
             $table->timestamps();
         });

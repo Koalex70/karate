@@ -2,7 +2,7 @@
 
 use \App\Livewire\TournamentsTable;
 use \App\Livewire\CreateTournament;
-use App\Livewire\UpdateTrainer;
+use \App\Livewire\EditTournament;
 
 Route::get('/tournaments', TournamentsTable::class)
     ->middleware(['auth', 'verified'])
@@ -12,6 +12,6 @@ Route::get('tournaments/create', CreateTournament::class)
     ->middleware(['auth', 'verified'])
     ->name('tournaments.create');
 
-//Route::get('trainers/edit/{trainer}', UpdateTrainer::class)
-//    ->middleware(['auth', 'verified'])
-//    ->name('trainers.edit');
+Route::get('tournaments/edit/{tournament}', EditTournament::class)
+    ->middleware(['auth', 'verified'])
+    ->name('tournaments.edit');

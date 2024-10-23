@@ -37,11 +37,14 @@ class TournamentForm extends Form
         $this->weight_max = $tournament->weight_max ?? null;
     }
 
-    public function store(): void
+    public function store()
     {
         $this->validate();
 
-        Tournament::create($this->all());
+        $tournament = Tournament::create($this->all());
+        $tournament->generateTournamentNet();
+
+        return $tournament;
     }
 
     public function update(): void

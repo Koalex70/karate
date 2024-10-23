@@ -91,7 +91,7 @@
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$tournament->map->name}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$tournament->created_at}}</td>
                             <td class="flex items-center justify-center">
-                                <a href="{{route('tournaments', ['trainer' => $tournament])}}">
+                                <a href="{{route('tournaments.edit', ['tournament' => $tournament])}}">
                                     <div class="px-2 py-1 bg-blue-600 rounded mr-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -102,7 +102,7 @@
                                 </a>
                                 <button
                                     wire:click="delete({{$tournament->id}})"
-                                    wire:confirm="Вы действительно хотите удалить тренера: {{$tournament->name}} ?"
+                                    wire:confirm="Вы действительно хотите удалить турнир: {{$tournament->name}} ?"
                                     class="px-3 py-1 mb-4 mt-4 bg-red-500 text-white rounded">X
                                 </button>
                             </td>
