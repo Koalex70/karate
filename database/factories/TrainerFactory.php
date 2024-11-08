@@ -20,7 +20,7 @@ class TrainerFactory extends Factory
             'name' => $this->faker->firstNameMale(),
             'surname' => $this->faker->lastName(),
             'patronymic' => $this->faker->firstNameMale(),
-            'club_id' => $this->faker->numberBetween(22, 40)
+            'club_id' => $this->faker->numberBetween(1, 20)
         ];
     }
 }

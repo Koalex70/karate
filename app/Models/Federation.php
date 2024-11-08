@@ -11,7 +11,7 @@ class Federation extends Model
     use HasFactory;
 
     protected $fillable = [
-      'name'
+        'name'
     ];
 
     public function scopeSearch($query, $value)

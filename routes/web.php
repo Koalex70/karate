@@ -29,6 +29,9 @@ require __DIR__.'/club.php';
 require __DIR__.'/trainers.php';
 require __DIR__.'/participant.php';
 require __DIR__.'/tournaments.php';
+require __DIR__.'/category.php';
+require __DIR__.'/contestant.php';
+
 
 
 

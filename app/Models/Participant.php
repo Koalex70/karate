@@ -35,4 +35,9 @@ class Participant extends Model
     {
         return $this->belongsTo(Rank::class);
     }
+
+    public function getFullName(): string
+    {
+        return $this->surname . ' ' . $this->name . ' ' . $this->patronymic;
+    }
 }

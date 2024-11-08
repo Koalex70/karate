@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date_of_birth')->nullable();
             $table->decimal('weight', 5, 2)->nullable();
 
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('trainer_id');
             $table->unsignedBigInteger('rank_id');
             $table->unsignedBigInteger('club_id');

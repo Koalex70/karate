@@ -2,12 +2,13 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Tournament;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class TournamentsTable extends Component
+class CategoriesTable extends Component
 {
     use WithPagination;
 
@@ -19,6 +20,13 @@ class TournamentsTable extends Component
     public $perPage = 10;
     #[Url(history: true)]
     public $sortDirection = 'ASC';
+
+    public $tournament;
+
+    public function mount(Tournament $tournament)
+    {
+        $this->tournament = $tournament;
+    }
 
     public function updatedSearch(): void
     {
@@ -40,18 +48,16 @@ class TournamentsTable extends Component
         $this->sortDirection = 'ASC';
     }
 
-    public function delete(Tournament $tournament): void
-    {
-        $tournament->delete();
-    }
-
     public function render()
     {
-        return view('livewire.pages.tournaments.tournaments-table',
-            [
-                'tournaments' => Tournament::search($this->search)
-                    ->orderBy($this->sortBy, $this->sortDirection)
-                    ->paginate($this->perPage)
-            ]);
+        $categories = Category::with('map')
+            ->where('tournament_id', $this->tournament->id)
+            ->where('name', 'like', "%{$this->search}%")
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate($this->perPage);
+
+        return view('livewire.pages.categories.categories-table', [
+            'categories' => $categories
+        ]);
     }
 }

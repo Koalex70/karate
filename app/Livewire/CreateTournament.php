@@ -13,9 +13,10 @@ class CreateTournament extends Component
     {
         $tournament = $this->form->store();
 
-        return redirect()->to(route('tournaments.edit', ['tournament' => $tournament]));
-    }
+        session()->flash('status', 'Tournament successfully create');
 
+        return redirect()->to(route('categories', ['tournament' => $tournament->id]));
+    }
     public function render()
     {
         return view('livewire.pages.tournaments.create-tournament');

@@ -22,11 +22,10 @@ class ParticipantFactory extends Factory
             'surname' => $this->faker->lastName(),
             'patronymic' => $this->faker->firstNameMale(),
             'date_of_birth' => $this->faker->dateTime(),
-            'weight' => $this->faker->numberBetween(80, 120),
+            'weight' => $this->faker->numberBetween(40, 120),
             'trainer_id' => $this->faker->numberBetween(1, 20),
             'rank_id' => $this->faker->numberBetween(1, 17),
-            'club_id' => $this->faker->numberBetween(22, 40),
-            'user_id' => User::factory()
+            'club_id' => $this->faker->numberBetween(1, 20),
         ];
     }
 }

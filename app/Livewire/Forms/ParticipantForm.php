@@ -95,7 +95,7 @@ class ParticipantForm extends Form
     {
         $this->validate();
 
-        $this->user_id = User::factory()->create()->id;//TODO: придумать нормальный механизм регистрации пользователей
+//        $this->user_id = User::factory()->create()->id;//TODO: придумать нормальный механизм регистрации пользователей
 
         Participant::create($this->all());
     }

@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Турниры') }}
+            {{ __('Категории') }}
         </h2>
     </x-slot>
     <div class="flex items-center justify-between d p-4">
@@ -25,8 +25,7 @@
         </div>
         <div class="flex space-x-3">
             <div class="flex space-x-3 items-center">
-                <a href="{{route('tournaments.create')}}"
-                   class="bg-blue-600 rounded p-3 border-gray-300 text-white">
+                <a href="{{route('categories.create', ['tournament' => $tournament])}}" class="bg-blue-600 rounded p-3 border-gray-300 text-white">
                     Создать
                 </a>
             </div>
@@ -44,7 +43,32 @@
                         ])
                         @include('livewire.includes.table-head', [
                             'name' => 'name',
-                            'displayName' => 'NAME'
+                            'displayName' => 'Название'
+                        ])
+                        @include('livewire.includes.table-head', [
+                            'name' => 'age_min',
+                            'displayName' => 'Мин. возраст'
+                        ])
+                        @include('livewire.includes.table-head', [
+                            'name' => 'age_max',
+                            'displayName' => 'Макс. возраст'
+                        ])
+                        @include('livewire.includes.table-head', [
+                            'name' => 'weight_min',
+                            'displayName' => 'Мин. вес'
+                        ])
+                        @include('livewire.includes.table-head', [
+                            'name' => 'weight_max',
+                            'displayName' => 'Макс. вес'
+                        ])
+                        @include('livewire.includes.table-head', [
+                            'name' => 'number_of_participants',
+                            'displayName' => 'Кол-во участников'
+                        ])
+                        @include('livewire.includes.table-head', [
+                            'name' => 'map_id',
+                            'displayName' => 'Карта',
+                            'isSortable' => false
                         ])
                         @include('livewire.includes.table-head', [
                             'name' => 'created_at',
@@ -54,13 +78,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($tournaments as $tournament)
-                        <tr wire:key="{{$tournament->id}}" class="border-b dark:border-gray-700 ">
-                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$tournament->id}}</td>
-                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$tournament->name}}</td>
-                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$tournament->created_at}}</td>
+                    @foreach($categories as $category)
+
+                        <tr wire:key="{{$category->id}}" class="border-b dark:border-gray-700 ">
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->id}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->name}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->age_min}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->age_max}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->weight_min}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->weight_max}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->number_of_participants}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->map->name}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->created_at}}</td>
                             <td class="flex items-center justify-center">
-                                <a href="{{route('categories', ['tournament' => $tournament])}}">
+                                <a href="{{route('categories.edit', ['tournament' => $tournament, 'category' => $category])}}">
                                     <div class="px-2 py-1 bg-blue-600 rounded mr-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -70,8 +101,8 @@
                                     </div>
                                 </a>
                                 <button
-                                    wire:click="delete({{$tournament->id}})"
-                                    wire:confirm="Вы действительно хотите удалить турнир: {{$tournament->name}}?"
+                                    wire:click="delete({{$category->id}})"
+                                    wire:confirm="Вы действительно хотите удалить категорию: {{$category->name}} ?"
                                     class="px-3 py-1 mb-4 mt-4 bg-red-500 text-white rounded">X
                                 </button>
                             </td>
@@ -95,7 +126,7 @@
                     </select>
                 </div>
             </div>
-            {{$tournaments->links()}}
+            {{$categories->links()}}
         </div>
     </section>
 </div>

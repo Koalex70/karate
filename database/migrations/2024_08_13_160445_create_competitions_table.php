@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('next_competition_id')->nullable();
-            $table->unsignedBigInteger('tournament_id');
+            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('competition_result_id')->nullable();
             $table->unsignedTinyInteger('level');
+            $table->boolean('is_final')->default(false);
 
             $table->foreign('next_competition_id')->references('id')->on('competitions');
-            $table->foreign('tournament_id')->references('id')->on('tournaments');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('competition_result_id')->references('id')->on('competition_results');
 
             $table->timestamps();
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('matches');
+        Schema::dropIfExists('competitions');
     }
 };
