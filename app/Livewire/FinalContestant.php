@@ -52,7 +52,7 @@ class FinalContestant extends Component
 
     public function save()
     {
-        if ($this->competition->is_final === true) {
+        if ($this->competition->is_final == true) {
 
             if (!empty($this->form->participant_id)) {
                 $this->category->winner_id = $this->form->participant_id;
