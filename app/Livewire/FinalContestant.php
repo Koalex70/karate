@@ -25,7 +25,7 @@ class FinalContestant extends Component
         $this->form->setCompetitionId($this->competition->id);
         $this->form->setPosition(\Route::current()->parameter('position'));
 
-        if ($this->competition->is_final === true) {
+        if ($this->competition->is_final == true) {
             $competitions = Competition::select('id')
                 ->where('is_final', true)
                 ->where('category_id', $this->category->id)
