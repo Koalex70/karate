@@ -14,5 +14,6 @@ class MapSeeder extends Seeder
     public function run(): void
     {
         DB::table('maps')->insert(['name' => 'Олимпийская сетка']);
+        DB::table('maps')->insert(['name' => 'Круговая']);
     }
 }

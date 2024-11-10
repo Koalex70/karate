@@ -49,12 +49,24 @@
                             <input type="text"
                                    id="tatami"
                                    name="tatami"
-                                   wire:model="tatami"
+                                   wire:model.live.debounce.300="tatami"
                                    class="border rounded bg-gray-800 text-white focus:border-indigo-600"
                                    placeholder="Введите номер татами">
                         </div>
                         <div class="text-right">
                             @error('tatami') <span class="text-red-600">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col mb-2">
+                            <label for="fight_number">Номер боя</label>
+                            <input type="text"
+                                   id="fight_number"
+                                   name="fight_number"
+                                   wire:model.live.debounce.300="fight_number"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите номер боя">
+                        </div>
+                        <div class="text-right">
+                            @error('fight_number') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="text-right mt-3">
                             <button type="submit"

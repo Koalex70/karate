@@ -16,8 +16,10 @@ class ContestantFirstLevel extends Component
     public Tournament $tournament;
     public Category $category;
     public ?Contestant $contestant;
+    public Competition $competition;
 
     public $tatami;
+    public $fight_number;
 
     public function updated($property)
     {
@@ -32,6 +34,12 @@ class ContestantFirstLevel extends Component
         $this->category->save();
     }
 
+    public function updatedFightNumber($fight_number)
+    {
+        $this->competition->fight_number = $fight_number ?: null;
+        $this->competition->save();
+    }
+
     public function setParticipant(Participant $participant)
     {
         $this->form->participant_id = $participant->id;
@@ -41,9 +49,11 @@ class ContestantFirstLevel extends Component
 
     public function mount(Competition $competition)
     {
+        $this->competition = $competition;
         $this->form->setCompetitionId($competition->id);
         $this->form->setPosition(\Route::current()->parameter('position'));
         $this->tatami = $this->category->tatami;
+        $this->fight_number = $competition->fight_number;
 
         $this->contestant = Contestant::where('position', \Route::current()->parameter('position'))
             ->where('competition_id', $competition->id)

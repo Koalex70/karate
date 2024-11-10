@@ -17,11 +17,23 @@ class EditContestant extends Component
     public Tournament $tournament;
     public Category $category;
     public ?Contestant $contestant;
+    public Competition $competition;
 
     public $participants;
 
+    public $fight_number;
+
+    public function updatedFightNumber($fight_number)
+    {
+        $this->competition->fight_number = $fight_number ?: null;
+        $this->competition->save();
+    }
+
     public function mount(Competition $competition)
     {
+        $this->competition = $competition;
+        $this->fight_number = $competition->fight_number;
+
         $this->form->setCompetitionId($competition->id);
         $this->form->setPosition(\Route::current()->parameter('position'));
 
