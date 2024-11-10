@@ -27,7 +27,9 @@
                                 @endif
                             >
                                 @if(!empty($contestants[$contestantNumber - 1]))
-                                    {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
+                                    @if(!empty($competition->fight_number))
+                                        {{$competition->fight_number . ' - '}}
+                                    @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                                 @else
                                     {{$contestantNumber - 1}}
                                 @endif
@@ -50,7 +52,9 @@
                                 @endif
                             >
                                 @if(!empty($contestants[$contestantNumber - 1])  )
-                                    {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
+                                    @if(!empty($competition->fight_number))
+                                        {{$competition->fight_number . ' - '}}
+                                    @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                                 @else
                                     {{$contestantNumber - 1}}
                                 @endif
@@ -93,7 +97,9 @@
                                                 ])}} @else # {{$contestantNumber++}} @endif"
                     >
                         @if(!empty($contestants[$contestantNumber - 1]))
-                            {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
+                            @if(!empty($thirdPlaceCompetition->fight_number))
+                                {{$thirdPlaceCompetition->fight_number . ' - '}}
+                            @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                         @else
                             {{$contestantNumber - 1}}
                         @endif
@@ -107,7 +113,9 @@
                                                 ])}} @else # {{$contestantNumber++}} @endif"
                     >
                         @if(!empty($contestants[$contestantNumber - 1]))
-                            {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
+                            @if(!empty($thirdPlaceCompetition->fight_number))
+                                {{$thirdPlaceCompetition->fight_number . ' - '}}
+                            @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                         @else
                             {{$contestantNumber - 1}}
                         @endif

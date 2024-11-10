@@ -16,6 +16,7 @@ class Competition extends Model
         'competition_result_id',
         'level',
         'is_final',
+        'fight_number'
     ];
 
     public function contestants() {
