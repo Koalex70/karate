@@ -20,6 +20,8 @@ return new class extends Migration
             $table->unsignedTinyInteger('level');
             $table->boolean('is_final')->default(false);
             $table->unsignedInteger('fight_number')->nullable();
+            $table->unsignedBigInteger('winner_id')->nullable();
+            $table->boolean('is_complete')->default(false);
 
             $table->foreign('next_competition_id')->references('id')->on('competitions');
             $table->foreign('category_id')->references('id')->on('categories');

@@ -37,6 +37,14 @@ class Category extends Model
             return; //TODO: сделать выброс исключения
         }
 
+        if ($this->number_of_participants == 3) {
+            Competition::factory()->create(['category_id' => $this->id, 'level' => 1]);
+            Competition::factory()->create(['category_id' => $this->id, 'level' => 1]);
+            Competition::factory()->create(['category_id' => $this->id, 'level' => 1]);
+
+            return;
+        }
+
         $numberOfLevels = $this->minPowerOfTwo($this->number_of_participants);
 
         //Гранд финал
