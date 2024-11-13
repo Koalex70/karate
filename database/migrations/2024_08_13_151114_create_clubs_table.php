@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('city');
+            $table->string('city')->nullable();
 
             $table->unsignedBigInteger('federation_id');
             $table->foreign('federation_id')->references('id')->on('federations');
