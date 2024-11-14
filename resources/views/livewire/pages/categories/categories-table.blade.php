@@ -46,6 +46,10 @@
                             'displayName' => 'Название'
                         ])
                         @include('livewire.includes.table-head', [
+                            'name' => 'type',
+                            'displayName' => 'Тип мастерства'
+                        ])
+                        @include('livewire.includes.table-head', [
                             'name' => 'age_min',
                             'displayName' => 'Мин. возраст'
                         ])
@@ -83,6 +87,7 @@
                         <tr wire:key="{{$category->id}}" class="border-b dark:border-gray-700 ">
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->id}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->name}}</td>
+                            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->type}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->age_min}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->age_max}}</td>
                             <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$category->weight_min}}</td>

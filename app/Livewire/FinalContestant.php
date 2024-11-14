@@ -50,6 +50,12 @@ class FinalContestant extends Component
         $this->participants = Participant::whereIn('id', $participantIds)->get();
     }
 
+    public function updatedFightNumber($fight_number)
+    {
+        $this->competition->fight_number = $fight_number ?: null;
+        $this->competition->save();
+    }
+
     public function save()
     {
         if ($this->competition->is_final == true) {

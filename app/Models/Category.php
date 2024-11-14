@@ -18,7 +18,8 @@ class Category extends Model
         'number_of_participants',
         'is_final',
         'map_id',
-        'tournament_id'
+        'tournament_id',
+        'type',
     ];
 
     public function map()

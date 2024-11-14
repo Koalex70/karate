@@ -28,6 +28,8 @@ class CategoryForm extends Form
     public $weight_min;
     #[Validate('nullable|numeric|max:200')]
     public $weight_max;
+    #[Validate('nullable')]
+    public $type;
 
     public function setCategory(Category $category): void
     {
@@ -39,6 +41,7 @@ class CategoryForm extends Form
         $this->age_max = $category->age_max ?? null;
         $this->weight_min = $category->weight_min ?? null;
         $this->weight_max = $category->weight_max ?? null;
+        $this->type = $category->type ?? null;
     }
 
     public function store(Tournament $tournament)

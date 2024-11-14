@@ -32,6 +32,18 @@
                             @error('form.name') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col mb-2">
+                            <label for="type">Тип мастерства участников</label>
+                            <input type="text"
+                                   id="type"
+                                   name="type"
+                                   wire:model="form.type"
+                                   class="border rounded bg-gray-800 text-white focus:border-indigo-600"
+                                   placeholder="Введите тип мастерства(A, B, C)">
+                        </div>
+                        <div class="text-right">
+                            @error('form.type') <span class="text-red-600">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col mb-2">
                             <label for="number_of_participants">Количество участников</label>
                             <input type="number"
                                    id="number_of_participants"

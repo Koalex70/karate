@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->unsignedInteger('weight_max')->nullable();
             $table->unsignedInteger('number_of_participants');
             $table->string('tatami')->nullable();
+            $table->string('type')->nullable();
 
             $table->unsignedBigInteger('map_id');
             $table->foreign('map_id')->references('id')->on('maps');

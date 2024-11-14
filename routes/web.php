@@ -32,6 +32,7 @@ require __DIR__.'/tournaments.php';
 require __DIR__.'/category.php';
 require __DIR__.'/contestant.php';
 require __DIR__.'/import.php';
+require __DIR__.'/view.php';
 
 
 

@@ -1,4 +1,4 @@
-<div class="cont">
+<div class="cont" wire:poll.keep-alive.2s>
     @if($category->number_of_participants > 3)
         <div class="tournament mb-2">
             <h3 class="text-white text-center text-xl">Основная турнирная сетка</h3>
@@ -32,7 +32,9 @@
                                             {{$competition->fight_number . ' - '}}
                                         @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                                     @else
-                                        {{$contestantNumber - 1}}
+                                        @if(!empty($competition->fight_number))
+                                            {{$competition->fight_number . ' - '}}
+                                        @endif {{$contestantNumber - 1}}
                                     @endif
                                 </a>
                                 <a class="tournament__match__team "
@@ -57,7 +59,9 @@
                                             {{$competition->fight_number . ' - '}}
                                         @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                                     @else
-                                        {{$contestantNumber - 1}}
+                                        @if(!empty($competition->fight_number))
+                                            {{$competition->fight_number . ' - '}}
+                                        @endif {{$contestantNumber - 1}}
                                     @endif
                                 </a>
                             </div>
@@ -102,7 +106,9 @@
                                     {{$thirdPlaceCompetition->fight_number . ' - '}}
                                 @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                             @else
-                                {{$contestantNumber - 1}}
+                                @if(!empty($thirdPlaceCompetition->fight_number))
+                                    {{$thirdPlaceCompetition->fight_number . ' - '}}
+                                @endif {{$contestantNumber - 1}}
                             @endif
                         </a>
                         <a class="tournament__match__team "
@@ -118,7 +124,9 @@
                                     {{$thirdPlaceCompetition->fight_number . ' - '}}
                                 @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                             @else
-                                {{$contestantNumber - 1}}
+                                @if(!empty($thirdPlaceCompetition->fight_number))
+                                    {{$thirdPlaceCompetition->fight_number . ' - '}}
+                                @endif {{$contestantNumber - 1}}
                             @endif
                         </a>
                     </div>
@@ -159,7 +167,9 @@
                                         {{$competition->fight_number . ' - '}}
                                     @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                                 @else
-                                    {{$contestantNumber - 1}}
+                                    @if(!empty($competition->fight_number))
+                                        {{$competition->fight_number . ' - '}}
+                                    @endif {{$contestantNumber - 1}}
                                 @endif
                             </a>
                             <a class="tournament__match__team "
@@ -175,7 +185,9 @@
                                         {{$competition->fight_number . ' - '}}
                                     @endif {{$contestants[$contestantNumber - 1]['participant']->getFullName()}}
                                 @else
-                                    {{$contestantNumber - 1}}
+                                    @if(!empty($competition->fight_number))
+                                        {{$competition->fight_number . ' - '}}
+                                    @endif {{$contestantNumber - 1}}
                                 @endif
                             </a>
                         </div>
